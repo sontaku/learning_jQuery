@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>첫 연습</title>
+<style>
+	#here {
+		position: absolute;
+		left : 0;
+		top : 0;
+	}
+</style>
+<script src="../lib/jquery-3.6.0.js"></script>
+<script>
+	$(function() {
+		/*
+				// $(document).ready(function() {
+				// })
+			
+				
+				// 변수 선언
+				// 예전 버전 - var
+				// es5, 6 - let, const
+				let h = $('#here');
+				h.click(function(){
+					// $('#here').hide();
+					h.text('클릭하면 내용 변경')
+				})
+				
+				// mouseenter - mouseleave
+				// mousein - mouseout
+				
+				h.mouseover(function() {
+					h.css('border', '5px solid #FF8800')
+				})
+				h.mouseout(function() {
+					h.css('border', '5px dotted red')
+				})
+				
+				
+				let stu = $('#student');
+				stu.click(function(){
+					stu.text('클릭하면 내용 변경')
+				})
+				
+				stu.mouseenter(function() {
+					stu.css('border', '10px solid #FF8800')
+				})
+				stu.mouseleave(function() {
+					stu.css('border', '10px dotted red')
+				})
+				
+				// hover : 마우스 올라가있을때 + 내려올때 (이벤트)
+				// .hover(function(){}, function(){})
+				h.hover(function(){
+					h.css('background', 'black')
+				}, function(){
+					h.css('background', 'none')
+				})
+				
+				// 하나만 넣으면 마우스 올라갈때만 적용
+				stu.hover(function() {
+					stu.css('background', 'black')
+				})
+		 */
+
+		// 효과 함수
+		// $('#here').fadeOut(1000);
+		/*
+		let h = $('#here');
+		h.hover(function(){
+			h.fadeOut(1000);
+		}, function(){
+			h.fadeIn(1000);
+		})	
+		 */
+
+		// $('#here').slideUp(1000);
+		//$('#here').slideDown(1000);
+		$('#here').animate({'left': 400, 'top': 200});
+
+	})
+</script>
+</head>
+<body>
+
+
+	<div id="here">아자아자 제이쿼리~~!!!</div>
+
+
+	<div id="student">
+		<div id="name">홍길동</div>
+		<div id="age">34</div>
+	</div>
+
+
+
+</body>
+</html>
