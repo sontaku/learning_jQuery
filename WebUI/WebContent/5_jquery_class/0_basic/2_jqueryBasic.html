@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <title>첫 연습</title>
-<script src="../lib/jquery-3.6.0.js"></script>
+<script src="/WebUI/5_jquery_class/lib/jquery-3.6.0.js"></script>
 <style>
 .active {
 	border: 20px solid salmon;
@@ -44,22 +44,89 @@
 
 		$('#divEmpty').click(function() {
 			// hide()는 숨김
-			 $(this).hide();
-			
+			$(this).hide();
+
 			// empty는 값 제거
 			//$(this).empty();
 		})
+
+		$('#changeGrim').click(
+				function() {
+					console.log("그림 클릭")
+					//$(this).attr('src', 'images/cat.jpg');
+					$(this).attr('src',
+							'/WebUI/5_jquery_class/0_basic/images/cat.jpg');
+					$(this).animate({
+						'width' : 400,
+						'height' : 400
+					}, 1500, 'linear');
+					$(this).animate({
+						'width' : 216,
+						'height' : 233
+					}, 1500, 'linear');
+					//$(this).attr('src', 'images/puppy.jpg');
+				})
+
+		// (4) 확인 버튼이 눌렸을때
+		$('#check').click(
+				function() {
+					let message = '';
+					// 사용자 입력값 얻어와서 message 변수에 추가
+					message += "이름 : " + $('#tf').val() + "\n";
+					message += "메세지 : " + $('#ta').val() + "\n";
+					let selVal = ($('#sel').val() == "seoul") ? "서울"
+							: "busan" ? "부산" : "masan" ? "마산"
+									: "incheon" ? "인천" : "없음";
+
+					message += ("주소 : " + selVal) + "\n";
+
+					let sel_m_val = ($('#sel_m_val').val() == "seom1") ? "제주도"
+							: "seom2" ? "울릉도" : "seom3" ? "독도"
+									: "seom4" ? "거제도" : "없음";
+
+					message += ("섬 : " + sel_m_val) + "\n";
+
+					alert(message)
+
+		})
 		
-		$('#changeGrim').click(function() {
-			console.log("그림 클릭")
-			//$(this).attr('src', 'images/cat.jpg');
-			$(this).attr('src', '/WebUI/5_jquery_class/0_basic/images/cat.jpg');
-			$(this).animate({'width': 400, 'height': 400}, 1500, 'linear');
-			$(this).animate({'width': 216, 'height': 233}, 1500, 'linear');
-			//$(this).attr('src', 'images/puppy.jpg');
+		// 초기화 버튼이 눌렸을 때
+		$('#init').click(function() {
+			$('#tf').val('홍길동');
+			$('#ta').val('내용을 입력하세요');
+			$('#sel').val('incheon');
+			$('#sel_m').val([ 'seom2', 'seom3' ]);
+			//$('#tf').val()
+			//$('#tf').val()
+		})
+		
+		
+		// '동적만들기' 버튼이 눌렸을 때
+		$('#btn').click(function() {
+			let actor = $('#actor');
+			let tae = $('#tae');
+			let su = $('#su');
+			let bin = $('#bin');
+			
+			// 동적태그변경 : append / appendTo()
+/* 			actor.append(tae);
+			actor.append(su);
+			actor.append(bin); */
+			
+			tae.appendTo(actor);
+			su.appendTo(actor);
+			bin.appendTo(actor);
+			
+			//*********중요**********
+			// 동적 태그 추가
+			actor.append('<div>한배우</div>');
+			
+			let n = $('<div/>');
+			//n.text('두배우')
+			actor.append(n);
+			n.text('두배우');
 		})
 	})
-
 </script>
 </head>
 <body>
@@ -111,6 +178,7 @@
 	<div id="tae">김태희</div>
 	<div id="su">김수현</div>
 	<div id="bin">현빈</div>
+	<button id='btn'>동적만들기</button>
 	<!-- [ 과제 ] 동적 테이블 만들기  -->
 
 	<!-- 6 -->

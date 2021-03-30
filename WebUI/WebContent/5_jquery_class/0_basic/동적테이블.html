@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 동적테이블.html </title>
+<script src="/WebUI/5_jquery_class/lib/jquery-3.6.0.js"></script>
+<script>
+	$(function() {
+		$('#btn').click(function() {
+			/*
+				사용자 입력 값이나 선택 값을 얻어오기
+				val()
+				:checked
+				val()
+			*/		
+			var tbl = $('#tbl');
+			/*
+				1) tr 요소를 만들어서 테이블 붙이기
+			*/
+			//var tr = $('<td/>');
+			//tbl.append(tr);
+			// 2) tr에 td를 3개 붙이기
+			// 3) 각 td에 위 입력값(선택값)을 지정하기
+			let c1 = $('#c1').val();
+			let c2 = $('input[name="size"]:checked').val();
+			let c3 = $('option[class="c3"]:selected').val();
+			tbl.append('<tr><td>' + c1 + '</td><td>' + c2 + '</td><td>' + c3 + '</td></tr>');
+			$('#c1').val("")
+		})
+	})
+</script>
+</head>
+<body>
+	<div>
+		<label>
+			항목 : <input type='text' id='c1'/>
+		</label><br>
+		<label>
+			크기 : 
+			<input class='c2' name='size' type='radio' value='large' checked>대
+			<input class='c2' name='size' type='radio' value='normal'>중
+			<input class='c2' name='size' type='radio' value='small'>소
+		</label><br>
+		<label>색상 : <select>
+			<option class='c3' value="red">빨강</option>
+			<option class='c3' value="green">초록</option>
+			<option class='c3' value="blue">파랑</option>
+			</select>
+		</label><br>
+		<button id="btn">추가</button>
+	</div>
+	<table border='1' id='tbl'>
+	<tr id='tbl_row'>
+		<td>항목</td>
+		<td>크기</td>
+		<td>색상</td>
+	</tr>
+	</table>
+</body>
+</html>
