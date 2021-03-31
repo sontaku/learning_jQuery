@@ -126,6 +126,15 @@
 			actor.append(n);
 			n.text('두배우');
 		})
+		
+		// (6)
+		$('.data').click(function() {
+			$(this).click(function() {
+				//let th = $(this).text();
+				//alert(th);
+				alert(this.textContent)
+			})
+		})
 	})
 </script>
 </head>

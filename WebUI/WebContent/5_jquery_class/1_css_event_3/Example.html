@@ -3,6 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title> 제이쿼리 이벤트 연습 </title>
+<script src="/WebUI/5_jquery_class/lib/jquery-3.6.0.js"></script>
+<script>
+	$(function() {
+		// alert('ready')
+		let f_btn = $('.fontSize').find('button:first');
+		f_btn.click(function() {
+			$('#txt').css('font-size','+=5px');
+		})
+		
+		let s_btn = $('.fontSize').find('button:nth-child(2)');
+		s_btn.click(function() {
+			$('#txt').css('font-size','-=5px');
+		})
+		
+		$('#fontstyle').click(function() {
+			$('#txt').css('font-style', $(this).val());
+		})
+		
+	})	
+</script>
 </head>
 <body>
 

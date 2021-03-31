@@ -3,12 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <title>jquery event</title>
-
+<script src="/WebUI/5_jquery_class/lib/jquery-3.6.0.js"></script>
 <style type="text/css">
 	.bg { background : yellow; }
 	.border { border : 3px dotted red; }
 </style>
-
+<script>
+	$(document).ready(function() {
+		// 이벤트 방식 - 원래방식 .bind() .one()
+		
+		$('h1').css({'cursor' : 'pointer'})
+		$('h1').bind('click', function() {
+			var li = $('<li/>').text('서울')
+			$('ul').append(li)
+		})
+		/*
+		$('li').css({'cursor' : 'pointer'})
+		$('li').bind('click', function() {
+			$('#result').text($(this).text());
+		})
+		*/
+		
+		
+		// ******************************************
+		// 동적으로 생성한 요소는 bind 이벤트가 적용되지 않음
+		// ==> on()
+		// 적용할 대상의 부모태그에 할당 후 지정
+		/*
+		$('body').on('click', 'h1', function() {
+			var li = $('<li/>').text('서울')
+			$('ul').append(li)
+		})
+		*/
+		
+		$('ul').on('click', 'li', function() {
+			$('li').css({'cursor' : 'pointer'});
+			$('result').text($(this).text());
+		})
+		
+		
+		// 이벤트 방식 - 축약형
+		//$('li').click(function(){})
+		
+	})
+</script>
 </head>
 <body>
 	<h1>제이쿼리 이벤트</h1>

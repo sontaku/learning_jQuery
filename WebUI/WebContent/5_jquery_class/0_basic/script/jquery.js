@@ -1,4 +1,6 @@
 $(function() {
+	
+	
 	// 1) 첫번째 요소
 	//$('li:first').css({'border':'2px solid green'});
 
@@ -26,5 +28,10 @@ $(function() {
 		$(this).removeClass('bg');
 	});
 
-
+	// 각각의 그룹에서 첫번쨰 li 요소를 찾아 클래스(border) 적용
+	//$('body > ul > li:nth-child(1)').addClass('borderRed');
+	//$('body > ul > li:first-of-type').addClass('borderRed');
+	//$('body > ul > li:first-child').addClass('borderRed');
+	$('body > ul').find('li:first').addClass('borderRed');
 })
+
