@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0 0 0 0;
+        }
+
+        #me {
+            border: 5px solid red;
+            background-color: orangered;
+            width: 200px;
+            height: 200px;
+        }
+
+        #mo {
+            border: 5px solid blue;
+            background-color: lightskyblue;
+            width: 200px;
+            height: 200px;
+        }
+
+        .me_child {
+            border: 3px solid red;
+            background-color: salmon;
+            width: 150%;
+            height: 150%;
+            float: left;
+        }
+
+        .mo_child {
+            border: 3px solid blue;
+            background-color: thistle;
+            width: 150%;
+            height: 150%;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $('#me').mouseenter(function () {
+                $('#me').animate({ 'width': 220, 'height': 220 }, 500, 'linear');
+                // $('.me_child').animate({ 'width': 330, 'height': 330 }, 500, 'linear');
+            }).mouseleave(function () {
+                $('#me').animate({ 'width': 200, 'height': 200 }, 500, 'linear');
+                // $('.me_child').animate({ 'width': 300, 'height': 300 }, 500, 'linear');
+            });
+
+
+
+            $('#mo').mouseover(function () {
+                $('#mo').animate({ 'width': 220, 'height': 220 }, 500, 'linear');
+                // $('.mo_child').animate({ 'width': 330, 'height': 330 }, 500, 'linear');
+            }).mouseout(function () {
+                $('#mo').animate({ 'width': 200, 'height': 200 }, 500, 'linear');
+                // $('.mo_child').animate({ 'width': 300, 'height': 300 }, 500, 'linear');
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <div id="me">
+            <div class="me_child">mouse enter</div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <div>
+        <div id="mo">
+            <div class="mo_child">mouse over</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
