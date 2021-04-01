@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test.html</title>
+<!-- 1) jquery lib -->
+<script src='./js/jquery-1.11.1.js'></script>
+<!-- 2) jquery plugin -->
+<script src='./js/jquery.son.js'></script>
+<!-- 3) 사용자 정의 js -->
+<script type="text/javascript">
+$(function(){
+	$('#btn').click(function() {
+		$('#result').red();
+	})
+})
+</script>
+
+</head>
+<body>
+	<div id="result">나는 피자를 좋아한다</div>
+	<button id="btn">피자</button>
+</body>
+</html>
