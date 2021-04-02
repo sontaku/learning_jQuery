@@ -3,7 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <title>Visualize</title>
-<script type="text/javascript"  src=""></script>
+<!-- 1. css 연결-->
+<link rel='stylesheet' type='text/css' href='./css/visualize-dark.css'>
+<link rel='stylesheet' type='text/css' href='./css/visualize-light.css'>
+<link rel='stylesheet' type='text/css' href='./css/visualize.css'>
+<!-- 2. jquery 연결-->
+<script type="text/javascript"  src="http://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- 3. plugin 연결-->
+<script src='js/visualize.jQuery.js' type='text/javascript'></script>
+<!-- 4. 사용자 정의-->
+<script type='text/javascript'>
+$(function() {
+  $('#data').visualize({ type: 'bar' })
+  $('#data').visualize({ type: 'pie' })
+  $('#data').visualize({ type: 'line' })
+  $('#data').visualize({ type: 'area' })
+})
+</script>
 
 </head>
 <body>

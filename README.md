@@ -194,11 +194,10 @@ https://plugins.jquery.com/
 
 - popup plugin
 - b 팝업
+- 슬라이더 https://bxslider.com/
+- 달력 https://jqueryui.com/datepicker/
+- visualize 시각화 그래프
 
 
 
 
-
-달력
-
-https://jqueryui.com/datepicker/

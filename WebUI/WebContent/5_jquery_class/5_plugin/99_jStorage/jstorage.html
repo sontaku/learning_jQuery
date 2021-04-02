@@ -7,9 +7,33 @@
   <script type="text/javascript"  src="http://code.jquery.com/jquery-1.9.0.js"></script>
 
   <!-- jstorage라이브러리를 임포트 -->
+  <!--위험성이 있어 웹에서는 위험하다-->
   <script type="text/javascript" src="js/jstorage.min.js"></script>
 
   <script type="text/javascript">
+    $(function() {
+
+      // 저장된 내용을 가져와서 화면에 출력
+      $('#name').val($.jStorage.get('jsname'))
+      $('#memo').val($.jStorage.get('jsmemo'))
+
+      $('#set').click(function() {
+        // jsname, jsmemo에 입력 값 저장
+        $.jStorage.set('jsname', $('#name').val() );
+        $.jStorage.set('jsmemo', $('#memo').val() );
+
+        // 저장 후 초기화
+        $('#name').val('')
+        $('#memo').val('')
+      })
+      // 삭제 버튼이 눌렸을 때 jStorage 내용을 지우기 ( deletekey() )
+      $('#del').click(function() {
+        $.jStorage.deleteKey('jsname');
+        $.jStorage.deleteKey('jsmemo');
+        $('#name').val('')
+        $('#memo').val('')
+      })
+    })
 
   </script>
 </head>
