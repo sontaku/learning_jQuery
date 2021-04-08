@@ -3,9 +3,9 @@
 
 <%
 String driver="oracle.jdbc.driver.OracleDriver";
-String user="scott";
-String pass="tiger";
-String dbURL="jdbc:oracle:thin:@localhost:1521:orcl";
+String user="SCOTT";
+String pass="TIGER";
+String dbURL="jdbc:oracle:thin:@localhost:1521:xe";
 
 
 

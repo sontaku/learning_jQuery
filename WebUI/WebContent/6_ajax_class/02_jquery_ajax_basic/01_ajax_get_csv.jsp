@@ -8,12 +8,17 @@
 </script>
 <script type="text/javascript">
 	$(function() {
-		var param = {
-			cate : 'book',
-			name : 'kim'
-		}
+		var param = {cate : 'book', name : 'kim'}
 		// ****** ajax(Asynchronous JavaScript and XML) 비동기
+		// 표준 방식
+		/*
 		$.ajax({
+			// type : 데이터 전송 방식
+			// 		ajax 에서는 get방식을 권장한다
+			//		IE : 기본 get
+			//		Chrome : 기본 post
+			//
+			type : 'get',
 			// data : 서버로 보낼 데이터
 			data : param,
 			// url : 서버에 요청 페이지
@@ -25,6 +30,11 @@
 				alert('에러발생');
 			}
 		});
+		*/
+		
+		// 축약형
+		$.get('01_server.jsp', param, parseData);
+		
 		alert('시작')
 
 		// 서버에서 보내주는 데이터

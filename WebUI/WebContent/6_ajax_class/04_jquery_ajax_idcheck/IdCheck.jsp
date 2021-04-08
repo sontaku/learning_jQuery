@@ -3,15 +3,16 @@
 
 <%
 String driver="oracle.jdbc.driver.OracleDriver";
-String user="scott";
-String pass="tiger";
-String dbURL="jdbc:oracle:thin:@localhost:1521:orcl";
+String user="SCOTT";
+String pass="TIGER";
+String dbURL="jdbc:oracle:thin:@localhost:1521:xe";
 
 
 	Class.forName(driver);
 	Connection connection=DriverManager.getConnection(dbURL,user,pass);
 	
-	String sql = "select * from ajax_temp where name='" + request.getParameter("userid")+"'";
+	String sql = "select * from emp where ename='" + request.getParameter("userid").toUpperCase()+"'";
+	//String sql = "select * from emp where ename='" + request.getParameter("userid")+"'";
 	System.out.println(sql);
 	Statement stmt = connection.createStatement();
 	ResultSet rs = stmt.executeQuery(sql);		

@@ -1,8 +1,123 @@
-Ajax jsp
+# Ajax
+
+> ajax(Asynchronous JavaScript and XML) 비동기 개발 기법
+
+
+
+## 문법
+
+### 표준형
+
+```javascript
+$.ajax({
+	type : 'get',
+	data : param,
+	url : '01_server.jsp',
+    dataType : 'xml', 
+	success : parseData,
+	error : function() {
+	alert('에러발생');
+	}
+});
+```
+
+- type : 데이터 전송 방식
+  - ajax 에서는 **get방식을 권장**한다
+  - IE : 기본 get
+  - Chrome : 기본 post
+- data : 서버로 보낼 데이터
+- dataType : 받을 데이터 타입
+  - json : 라이브러리 필요
+- url : 서버에 요청 페이지
+- success : 서버로부터 성공하면 호출되는 함수
+- error : 서버로부터 실패하면 호출되는 함수
 
 
 
 
+
+### 축약형
+
+```javascript
+$.get('01_server.jsp', param, parseData);
+```
+
+표준형보다 간결하지만 최근에는 **표준형을 주로 사용**하는 편
+
+
+
+
+
+## 확장자 별 데이터 불러오기
+
+### xml
+
+```javascript
+$(function () {
+	let param = {cate : 'book', name : 'kim'};
+		
+	$.ajax({
+		type : 'get',
+		data : param,
+		url : '03_server.jsp',
+		dataType : 'xml', 
+		success : parseData
+	});
+	alert('시작');
+
+	function parseData(result) {
+		//alert(result)
+		$('#cate').val( $(result).find('first').text() )
+		$('#name').val( $(result).find('second').text() )
+	}
+})
+```
+
+
+
+### json
+
+```javascript
+$(function() {
+	let param = {
+		cate : 'book',
+		name : 'kim'
+	};
+
+	$.ajax({
+		type : 'get',
+		data : param,
+		url : '04_server.jsp',
+		dataType : 'text',
+		// json : 라이브러리 필요
+		success : parseData
+	});
+	alert('시작');
+
+	function parseData(result) {
+		//alert(result);
+		let obj = {};
+		// 강제로 객체 생성하기
+		obj = eval("(" + result + ")");
+		$('#cate').val( obj.first );
+		$('#name').val( obj.second );
+	}
+})
+```
+
+- json 파일의 값을 불러올 때는 **json 라이브러리가 필요**하다.
+- 임시로 text 타입의 내용에 json 형태의 값을 갖고 있을 경우 위와 같이 값을 불러온다.
+- eval() 함수는 보안에 취약하기에 적재적소에 활용만 하도록 하자.
+
+
+
+
+
+
+
+
+
+-----------
 
 Same Origin Policy : 동일 출처 정책
 

@@ -7,6 +7,29 @@
 	<title></title>
 	<script  type="text/javascript"  src="libs/jquery-1.9.1.min.js"> </script>
 
+<script type="text/javascript" src="libs/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		let param = {cate : 'book', name : 'kim'};
+		
+		$.ajax({
+			type : 'get',
+			data : param,
+			url : '03_server.jsp',
+			dataType : 'xml', 
+			success : parseData
+		});
+		alert('시작');
+
+		function parseData(result) {
+			//alert(result)
+			$('#cate').val( $(result).find('first').text() )
+			$('#name').val( $(result).find('second').text() )
+		}
+	})
+
+</script>
+
 </head>
 
 <body>
