@@ -87,10 +87,11 @@ $(function() {
 	$.ajax({
 		type : 'get',
 		data : param,
-		url : '04_server.jsp',
-		dataType : 'text',
+		url : '04_server.do', // 여기로 요청보냄 ( 컨트롤러에서 처리 )
+		dataType : 'text',// 파일 저장방식?
 		// json : 라이브러리 필요
-		success : parseData
+		success : parseData // 컨트롤러에서 전달 받았을때
+        error : function(){} // 컨트롤러에서 아예 전달받지 못했을떄
 	});
 	alert('시작');
 
